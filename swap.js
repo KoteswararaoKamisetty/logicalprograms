@@ -1,12 +1,9 @@
-// Method 1
 let firstNum = 9;
 let secondNum = 5;
 
 [secondNum, firstNum] = [firstNum, secondNum];
 
 console.log(firstNum, secondNum);
-
-// Method 2
 
 let ary = [1, 5, 4,9, 3, 2];
 
