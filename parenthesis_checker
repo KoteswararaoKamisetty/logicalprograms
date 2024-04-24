@@ -1,0 +1,39 @@
+// Given an expression string x. Examine whether the pairs and the orders of {,},(,),[,] are correct in exp.
+// For example, the function should return 'true' for exp = [()]{}{[()()]()} and 'false' for exp = [(]).
+
+function isBalanced(exp) {
+    const stack = [];
+    const bracketsMap = {
+        ')': '(',
+        '}': '{',
+        ']': '['
+    };
+
+    for (let char of exp) {
+        if (char === '(' || char === '{' || char === '[') {
+            stack.push(char); // Push opening brackets onto the stack
+        } else if (char === ')' || char === '}' || char === ']') {
+            if (stack.length === 0) { // If stack is empty and a closing bracket is encountered, it's unbalanced
+                return false;
+            }
+            // Pop the top element from the stack and check if it matches the current closing bracket
+            const top = stack.pop();
+            if (bracketsMap[char] !== top) {
+                return false;
+            }
+        }
+    }
+
+    // If stack is empty at the end, all brackets are balanced
+    return stack.length === 0;
+}
+
+// Drive code
+const exp = "[()]{}{[()()]()}";
+function msg() {
+    if (isBalanced(exp)) {
+        console.log("balanced");
+    } else {
+        console.log("not balanced");
+    }
+}
