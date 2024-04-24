@@ -1,0 +1,16 @@
+function countCharacters(str) {
+    const charCount = {};
+
+    // Count occurrences of each character
+    for (let char of str) {
+        charCount[char] = (charCount[char] || 0) + 1;
+    }
+
+    // Format the result
+    const result = [];
+    for (let char in charCount) {
+        result.push(`${char} = ${charCount[char]}`);
+    }
+
+    return result.join(', ');
+}
