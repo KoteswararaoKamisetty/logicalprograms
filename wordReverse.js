@@ -1,14 +1,16 @@
+// Each word reverse in a given string
 let str = "Welcome to Programiz!";
 let eachWord = '';
 let wordReverse = '';
     // Word reverse
 let words = str.split(' ');
 
-for (const word of words) {
-    eachWord = '';
-    for (let i = word.length - 1; i >= 0; i--) {
-        eachWord += word[i];
-    }
-    wordReverse += eachWord + " ";
+for(let char of words){
+	eachWord = '';
+  for(var i = 0; i < char.length; i++){
+  	eachWord += char[char.length-1-i];
+  }
+  wordReverse += eachWord + " ";
 }
+
 console.log(wordReverse);
