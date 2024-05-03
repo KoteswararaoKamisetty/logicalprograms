@@ -1,0 +1,24 @@
+// Remove Duplicate Chars from String and arrange those chars in ascending order
+
+var str ="AVKASG";
+var str2 = "";
+for(let char of str){
+  if(str2.includes(char) == false) str2 += char;
+}
+var sortedString = bubbleSort(str2);
+console.log("Sorted string:", sortedString);
+
+function bubbleSort(arr) {
+    var len = arr.length;
+    var sortedArr = arr.split('');
+    for (var i = 0; i < len; i++) {
+        for (var j = 0; j < len - i - 1; j++) {
+            if (sortedArr[j] < sortedArr[j + 1]) {
+                var temp = sortedArr[j];
+                sortedArr[j] = sortedArr[j + 1];
+                sortedArr[j + 1] = temp;
+            }
+        }
+    }
+    return sortedArr.join('');
+}
